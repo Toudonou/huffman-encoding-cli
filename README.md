@@ -37,4 +37,4 @@ To use the CLI tool, run the executable with the appropriate options:
 
 
 ## License
-This project is open source, under the MIT License [see](LICENCE).
+This project is open source, under the MIT License [see](LICENSE).

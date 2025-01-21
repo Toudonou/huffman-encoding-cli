@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include <vector>
 #include <unordered_map>
+#include <vector>
 
 #define SHORT_MAX 32768 // B1000000000000000
 
@@ -14,28 +14,27 @@ struct CharacterFrequency {
 struct HuffmanNode {
     CharacterFrequency characterFrequency{};
     std::string binaryCode;
-    HuffmanNode* left = nullptr;
-    HuffmanNode* right = nullptr;
+    HuffmanNode *left = nullptr;
+    HuffmanNode *right = nullptr;
 
-    explicit HuffmanNode(const CharacterFrequency& characterFrequency) : characterFrequency(characterFrequency) {}
+    explicit HuffmanNode(const CharacterFrequency &characterFrequency) : characterFrequency(characterFrequency) {}
 };
 
-void compression(const std::string& fileName);
+void compression(const std::string &fileName);
 
-void decompression(const std::string& fileName);
+void decompression(const std::string &fileName);
 
-std::vector<CharacterFrequency> extractCharactersFrequencies(const std::vector<std::string>& fileContents);
+std::vector<CharacterFrequency> extractCharactersFrequencies(const std::vector<std::string> &fileContents);
 
-HuffmanNode* createHuffmanTree(const std::vector<CharacterFrequency>& charactersFrequencies);
+HuffmanNode *createHuffmanTree(const std::vector<CharacterFrequency> &charactersFrequencies);
 
-std::unordered_map<unsigned char, std::string> remappingCharacters(HuffmanNode* root);
+std::unordered_map<unsigned char, std::string> remappingCharacters(HuffmanNode *root);
 
-unsigned long long createTheCompressFile(const std::unordered_map<unsigned char, std::string>& charactersMapping,
-                         const std::vector<CharacterFrequency>& charactersFrequencies,
-                         const std::string& fileName,
-                         const std::vector<std::string>& fileContents);
+unsigned long long createTheCompressFile(const std::unordered_map<unsigned char, std::string> &charactersMapping,
+                                         const std::vector<CharacterFrequency> &charactersFrequencies, const std::string &fileName,
+                                         const std::vector<std::string> &fileContents);
 
-void createTheDecompressFile(const std::string& fileName);
+void createTheDecompressFile(const std::string &fileName);
 
-void addDataInTheFile(const std::unordered_map<unsigned char, std::string>& charactersMapping, unsigned char character,
-                      std::ofstream& file, unsigned short& step, unsigned short& number);
+void addDataInTheFile(const std::unordered_map<unsigned char, std::string> &charactersMapping, unsigned char character, std::ofstream &file,
+                      unsigned short &step, unsigned short &number);

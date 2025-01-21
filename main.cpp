@@ -1,17 +1,20 @@
 #include <iostream>
+#include <ostream>
 #include <unistd.h>
 
 #include "huffman.h"
 
-void printHelp(char** argv) {
+void printHelp(char **argv) {
+    std::cout << " 🤣" << std::endl;
     std::cout << "Usage: " << argv[0] << " [options] [file]\n"
-        << "Options:\n"
-        << "  -c <file>    Encode the specified file\n"
-        << "  -d <file>    Decode the specified file\n"
-        << "  -h           Show this help message\n";
+              << "Options:\n"
+              << "  -c <file>    Encode the specified file\n"
+              << "  -d <file>    Decode the specified file\n"
+              << "  -h           Show this help message\n";
 }
 
-int main(const int argc, char** argv) {
+int main(const int argc, char **argv) {
+    printHelp(argv);
     const int option = getopt(argc, argv, ":c:d:h");
     std::string fileName;
     switch (option) {
@@ -25,9 +28,7 @@ int main(const int argc, char** argv) {
         fileName = optarg;
         decompression(fileName);
         return EXIT_SUCCESS;
-    case 'h':
-        printHelp(argv);
-        return EXIT_SUCCESS;
+    case 'h': printHelp(argv); return EXIT_SUCCESS;
     case '?':
         std::cerr << "Unknown option: " << static_cast<char>(optopt) << std::endl;
         printHelp(argv);
@@ -36,8 +37,6 @@ int main(const int argc, char** argv) {
         std::cerr << "The file name is expected for option: " << std::endl;
         printHelp(argv);
         return EXIT_FAILURE;
-    default:
-        printHelp(argv);
-        return EXIT_FAILURE;
+    default: printHelp(argv); return EXIT_FAILURE;
     }
 }

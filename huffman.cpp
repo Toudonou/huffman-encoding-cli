@@ -40,7 +40,7 @@ void compression(const std::string& fileName) {
 
     printf("Compressed file size: %llu bytes\n", compressSize);
     printf("Compression ratio: %.2f%%\n",
-           100 * static_cast<double>(compressSize) / static_cast<double>(std::filesystem::file_size(fileName)));
+           100 * (1 - static_cast<double>(compressSize) / static_cast<double>(std::filesystem::file_size(fileName))));
 }
 
 // Yeah, useless

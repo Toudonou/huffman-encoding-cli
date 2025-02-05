@@ -14,7 +14,7 @@ This project is a command-line tool for encoding and decoding `.txt` files using
     ```
 3. Build the project using `g++`:
     ```sh
-    g++ -o huffman main.cpp huffman.cpp
+    g++ -std=c++20 main.cpp huffman.cpp -o huffman
     ```
 
 ## Usage

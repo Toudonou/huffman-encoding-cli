@@ -5,7 +5,6 @@
 #include "huffman.h"
 
 void printHelp(char **argv) {
-    std::cout << " 🤣" << std::endl;
     std::cout << "Usage: " << argv[0] << " [options] [file]\n"
               << "Options:\n"
               << "  -c <file>    Encode the specified file\n"
@@ -14,7 +13,6 @@ void printHelp(char **argv) {
 }
 
 int main(const int argc, char **argv) {
-    printHelp(argv);
     const int option = getopt(argc, argv, ":c:d:h");
     std::string fileName;
     switch (option) {
@@ -34,7 +32,7 @@ int main(const int argc, char **argv) {
         printHelp(argv);
         return EXIT_FAILURE;
     case ':':
-        std::cerr << "The file name is expected for option: " << std::endl;
+        std::cerr << "The file name is expected for option" << std::endl;
         printHelp(argv);
         return EXIT_FAILURE;
     default: printHelp(argv); return EXIT_FAILURE;
